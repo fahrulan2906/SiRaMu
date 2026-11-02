@@ -1,0 +1,6 @@
+{
+  "name": "SI-ANALISIS RAPOR PENDIDIKAN PONTIANAK",
+  "description": "Sistem Informasi Analisis Rapor Pendidikan dan Pendampingan Satuan Pendidikan - Dinas Pendidikan dan Kebudayaan Kota Pontianak",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

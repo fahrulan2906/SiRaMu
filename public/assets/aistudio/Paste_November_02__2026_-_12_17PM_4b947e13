@@ -1,0 +1,924 @@
+Bertindaklah sebagai senior full-stack developer, data analyst pendidikan, ahli visualisasi data, ahli kecerdasan buatan, dan konsultan pendampingan satuan pendidikan di Indonesia.
+
+TUGAS UTAMA
+
+Buat sebuah aplikasi web full-stack yang berfungsi, responsif, aman, dan siap dikembangkan lebih lanjut dengan nama:
+
+SI-ANALISIS RAPOR PENDIDIKAN PONTIANAK
+
+Nama lengkap:
+Sistem Informasi Analisis Rapor Pendidikan dan Pendampingan Satuan Pendidikan.
+
+Aplikasi ini digunakan oleh seorang Pengawas Sekolah jenjang SD di Dinas Pendidikan dan Kebudayaan Kota Pontianak yang membina:
+- 12 Sekolah Dasar (SD).
+- 5 Taman Kanak-Kanak (TK).
+- Total 17 satuan pendidikan binaan.
+
+Aplikasi bertujuan membantu pengawas sekolah mengolah data Rapor Pendidikan, memahami capaian dan masalah prioritas setiap sekolah, membandingkan perkembangan dari tahun ke tahun, serta menyusun rekomendasi pendampingan yang tepat sasaran berdasarkan data.
+
+Jangan hanya membuat mockup atau desain visual. Bangun aplikasi dengan fungsi nyata, komponen yang saling terhubung, proses pengolahan data, penyimpanan data, analisis menggunakan Gemini API, visualisasi, dan fasilitas ekspor laporan.
+
+Jika ada konfigurasi layanan eksternal yang memerlukan persetujuan atau kredensial, buat integrasinya secara benar dan berikan petunjuk konfigurasi yang jelas.
+
+==================================================
+BAGIAN 1. DESAIN DAN IDENTITAS APLIKASI
+==================================================
+
+Buat aplikasi dengan desain profesional, modern, bersih, elegan, dan mudah digunakan oleh pengawas sekolah.
+
+Gunakan:
+- Bahasa antarmuka: Bahasa Indonesia.
+- Format tanggal: DD-MM-YYYY.
+- Zona waktu: Asia/Pontianak.
+- Format angka mengikuti standar Indonesia.
+- Warna utama: biru tua, putih, dan aksen hijau.
+- Desain dashboard berbasis kartu informasi.
+- Sidebar navigasi yang dapat dibuka dan ditutup.
+- Grafik interaktif.
+- Tabel dengan fitur pencarian, pengurutan, penyaringan, dan pagination.
+- Ikon yang relevan dengan dunia pendidikan.
+- Tampilan responsif untuk laptop, komputer, tablet, dan ponsel.
+
+Pada halaman utama, tampilkan identitas:
+
+SI-ANALISIS RAPOR PENDIDIKAN PONTIANAK
+Dinas Pendidikan dan Kebudayaan Kota Pontianak
+Sistem Analisis Rapor Pendidikan dan Pendampingan Satuan Pendidikan.
+
+Jangan menggunakan logo resmi pemerintah jika belum diberikan oleh pengguna. Sediakan tempat untuk mengunggah logo resmi apabila diperlukan.
+
+==================================================
+BAGIAN 2. DASHBOARD UTAMA
+==================================================
+
+Buat dashboard yang menjadi pusat kendali pengawas sekolah.
+
+Tampilkan kartu statistik:
+1. Jumlah sekolah binaan: 17.
+2. Jumlah SD: 12.
+3. Jumlah TK: 5.
+4. Jumlah sekolah yang sudah memiliki data Rapor Pendidikan.
+5. Jumlah sekolah yang belum mengunggah data.
+6. Jumlah sekolah yang sudah dianalisis.
+7. Jumlah sekolah yang masih membutuhkan analisis.
+8. Jumlah indikator prioritas perbaikan yang teridentifikasi.
+9. Jumlah rencana tindak lanjut yang sudah dibuat.
+10. Jumlah rencana tindak lanjut yang sudah selesai, jika datanya tersedia.
+
+Seluruh angka harus dihitung berdasarkan data aktual di dalam aplikasi.
+
+Jangan menampilkan angka capaian pendidikan yang dibuat-buat. Apabila belum ada data, tampilkan status "Belum ada data".
+
+Tambahkan komponen berikut:
+- Grafik ringkasan kondisi sekolah binaan.
+- Grafik perkembangan indikator yang datanya tersedia.
+- Daftar sekolah yang perlu mendapatkan perhatian pengawas.
+- Daftar sekolah yang belum memiliki data lengkap.
+- Daftar rekomendasi pendampingan yang belum ditindaklanjuti.
+- Filter jenjang SD dan TK.
+- Filter tahun Rapor Pendidikan.
+- Filter status analisis.
+- Tombol "Unggah Data Rapor Pendidikan".
+- Tombol "Analisis Semua Sekolah".
+- Tombol "Lihat Laporan".
+- Tombol "Buat Rencana Tindak Lanjut".
+
+Jangan menggabungkan indikator SD dan TK yang definisi atau metode pengukurannya berbeda.
+
+==================================================
+BAGIAN 3. MANAJEMEN 17 SEKOLAH BINAAN
+==================================================
+
+Buat modul "Data Sekolah Binaan".
+
+Sediakan tabel dengan kolom:
+- Nomor.
+- NPSN.
+- Nama sekolah.
+- Jenjang.
+- Kecamatan.
+- Kepala sekolah.
+- Tahun data terakhir.
+- Status kelengkapan data.
+- Status analisis.
+- Tanggal analisis terakhir.
+- Jumlah indikator yang perlu diperhatikan.
+- Aksi.
+
+Pengguna harus dapat:
+- Menambahkan sekolah.
+- Mengubah data sekolah.
+- Menghapus sekolah dengan konfirmasi.
+- Mencari sekolah berdasarkan nama atau NPSN.
+- Menyaring sekolah berdasarkan jenjang.
+- Melihat riwayat analisis setiap sekolah.
+- Membuka halaman detail sekolah.
+- Mengunggah data Rapor Pendidikan untuk sekolah tertentu.
+- Mengunduh laporan masing-masing sekolah.
+
+Siapkan 17 baris sekolah sebagai data awal.
+
+Gunakan nama sementara:
+SD Binaan 01 sampai SD Binaan 12.
+TK Binaan 01 sampai TK Binaan 05.
+
+Tandai seluruh nama tersebut sebagai data contoh yang belum diverifikasi.
+
+Jangan mengarang nama sekolah, NPSN, nama kepala sekolah, atau data capaian yang sebenarnya.
+
+Pengguna harus dapat mengganti nama sementara tersebut dengan data sekolah yang benar.
+
+==================================================
+BAGIAN 4. UNGGAH DAN IMPOR DATA RAPOR PENDIDIKAN
+==================================================
+
+Buat modul unggah dokumen dengan antarmuka yang mudah digunakan.
+
+Format yang didukung:
+- Excel XLSX.
+- CSV.
+- PDF, apabila teks atau tabelnya dapat diekstraksi.
+- Dokumen pendukung lain jika dapat diproses dengan andal.
+
+Utamakan Excel dan CSV untuk pengolahan data tabular.
+
+Pengguna dapat:
+1. Memilih satu sekolah.
+2. Memilih jenjang sekolah.
+3. Memilih tahun data.
+4. Mengunggah dokumen Rapor Pendidikan.
+5. Melihat pratinjau isi file.
+6. Memetakan kolom file ke kolom aplikasi jika nama kolom berbeda.
+7. Memeriksa data yang berhasil dibaca.
+8. Memeriksa data yang gagal dibaca.
+9. Mengonfirmasi impor.
+10. Menyimpan data yang telah divalidasi.
+
+Jika dokumen berisi beberapa lembar kerja, tampilkan pilihan lembar kerja yang akan diimpor.
+
+Buat mekanisme validasi untuk mendeteksi:
+- Kolom wajib yang tidak ditemukan.
+- Indikator yang kosong.
+- Nilai yang tidak sesuai format.
+- Baris duplikat.
+- Tahun data yang tidak jelas.
+- Sekolah yang belum teridentifikasi.
+- Nilai capaian yang tidak dapat dipahami.
+- Perbedaan format antara file yang diunggah.
+
+Jika terdapat kesalahan, tampilkan pesan yang jelas dan sarankan perbaikannya.
+
+Jangan langsung menghapus atau menimpa data lama ketika file baru diunggah.
+
+Sediakan pilihan:
+- Menambahkan data.
+- Memperbarui data yang cocok.
+- Membatalkan impor.
+
+Sebelum mengimpor, tampilkan ringkasan perubahan dan minta konfirmasi pengguna.
+
+Simpan metadata sumber data:
+- Nama file.
+- Nama sekolah.
+- Jenjang.
+- Tahun data.
+- Tanggal unggah.
+- Waktu unggah.
+- Status validasi.
+- Status analisis.
+
+Jika file PDF berupa hasil pindai gambar, gunakan OCR atau kemampuan multimodal jika tersedia. Jika pembacaan tidak akurat, minta pengguna memeriksa hasil ekstraksi sebelum menyimpan.
+
+Jangan mengasumsikan semua file Rapor Pendidikan memiliki struktur kolom yang sama.
+
+Buat sistem pemetaan kolom yang fleksibel.
+
+==================================================
+BAGIAN 5. STRUKTUR DATA DAN INDIKATOR
+==================================================
+
+Rancang struktur data fleksibel untuk menyimpan berbagai indikator Rapor Pendidikan dari tahun yang berbeda.
+
+Setiap catatan indikator, jika informasinya tersedia, memiliki:
+- ID data.
+- NPSN.
+- Nama sekolah.
+- Jenjang.
+- Tahun data.
+- Kode indikator.
+- Nama indikator.
+- Dimensi atau kelompok indikator.
+- Definisi indikator.
+- Nilai capaian.
+- Label kategori capaian.
+- Nilai atau kategori tahun sebelumnya.
+- Perubahan capaian.
+- Satuan pengukuran.
+- Deskripsi capaian.
+- Akar masalah yang tercantum dalam sumber.
+- Rekomendasi yang tercantum dalam sumber.
+- Nama dokumen sumber.
+- Tanggal impor.
+
+Tidak semua dokumen menyediakan seluruh kolom tersebut. Karena itu, kolom yang tidak tersedia harus ditandai sebagai data yang belum tersedia, bukan diisi dengan nilai hasil tebakan.
+
+Simpan nilai asli sesuai sumber.
+
+Pisahkan data asli, data hasil perhitungan, dan interpretasi AI.
+
+Buat kamus indikator agar pengguna dapat melihat:
+- Nama indikator.
+- Definisi.
+- Satuan.
+- Jenjang yang relevan.
+- Tahun berlaku.
+- Aturan perhitungan jika tersedia.
+- Sumber definisi.
+- Status kesesuaian untuk perbandingan.
+
+Jangan menetapkan indikator, kategori, target, atau ambang batas resmi berdasarkan asumsi.
+
+Gunakan metadata, definisi, dan pedoman resmi yang tersedia pada dokumen sumber.
+
+Apabila aturan resmi belum tersedia, minta pengguna memasukkan aturan yang diperlukan atau tampilkan peringatan bahwa interpretasi belum dapat diverifikasi.
+
+==================================================
+BAGIAN 6. MESIN ANALISIS RAPOR PENDIDIKAN
+==================================================
+
+Bangun mesin analisis yang menggabungkan perhitungan data secara deterministik dengan interpretasi berbantuan Gemini AI.
+
+Jangan menyerahkan seluruh perhitungan angka kepada AI.
+
+Lakukan perhitungan menggunakan kode aplikasi yang dapat diuji dan ditelusuri.
+
+Analisis setiap sekolah meliputi:
+
+A. RINGKASAN CAPAIAN
+
+Tampilkan:
+- Jumlah indikator yang tersedia.
+- Jumlah indikator yang membaik.
+- Jumlah indikator yang menurun.
+- Jumlah indikator yang tidak berubah.
+- Jumlah indikator yang belum dapat dibandingkan.
+- Indikator yang perlu mendapat perhatian.
+- Indikator yang menunjukkan perkembangan positif.
+
+Hitung kategori tersebut hanya apabila data dan aturan perbandingannya memadai.
+
+B. ANALISIS PERUBAHAN
+
+Bandingkan capaian antartahun apabila data tersedia.
+
+Tampilkan:
+- Nilai tahun sebelumnya.
+- Nilai tahun terbaru.
+- Selisih nilai.
+- Arah perubahan.
+- Keterangan interpretasi.
+
+Pastikan perbandingan menggunakan indikator yang sama, definisi yang sebanding, satuan yang sama, dan periode yang relevan.
+
+Jangan menyatakan suatu indikator membaik hanya karena angka meningkat. Pada indikator tertentu, penurunan nilai justru dapat berarti perbaikan.
+
+Gunakan arah perubahan resmi jika tersedia.
+
+Jika arah perubahan tidak diketahui, tampilkan "Arah perubahan belum dapat ditentukan".
+
+C. IDENTIFIKASI MASALAH PRIORITAS
+
+Identifikasi indikator yang memerlukan perhatian dengan mempertimbangkan:
+- Kategori capaian resmi.
+- Perubahan dari tahun sebelumnya.
+- Target yang tersedia dan telah diverifikasi.
+- Tingkat kepentingan indikator.
+- Keterkaitan dengan indikator lainnya.
+- Ketersediaan bukti pendukung.
+- Riwayat tindak lanjut.
+
+Jangan membuat skor prioritas resmi sendiri.
+
+Jika dibutuhkan skor prioritas internal, buat sebagai fitur opsional yang:
+- Memiliki rumus yang jelas.
+- Dapat dikonfigurasi.
+- Menjelaskan dasar pembobotan.
+- Diberi label "Skor prioritas internal pengawas".
+- Tidak disamakan dengan skor resmi Rapor Pendidikan.
+
+D. ANALISIS AKAR MASALAH
+
+Gunakan data yang tersedia untuk menyusun dugaan akar masalah.
+
+Pisahkan dengan tegas:
+1. Fakta yang tercantum dalam Rapor Pendidikan.
+2. Interpretasi dari hubungan antarindikator.
+3. Hipotesis penyebab yang masih memerlukan verifikasi.
+4. Data tambahan yang diperlukan untuk memastikan penyebab.
+
+Jangan menganggap hubungan dua indikator sebagai bukti sebab-akibat.
+
+Jika data belum cukup, sarankan pengawas melakukan diskusi dengan kepala sekolah, telaah dokumen, observasi pembelajaran, atau pengumpulan bukti pendukung.
+
+E. IDENTIFIKASI KEKUATAN SEKOLAH
+
+Jangan hanya mencari kelemahan.
+
+Identifikasi indikator yang menunjukkan capaian positif, perkembangan yang baik, atau praktik yang layak dipertahankan.
+
+Jika bukti pendukung tersedia, sarankan kemungkinan praktik baik untuk dipelajari atau dibagikan kepada sekolah lain.
+
+Jangan mengklaim keberhasilan suatu program tanpa bukti.
+
+F. KESIMPULAN ANALISIS
+
+Buat kesimpulan ringkas yang mencakup:
+- Kondisi sekolah berdasarkan data.
+- Kekuatan utama.
+- Masalah yang paling perlu diperhatikan.
+- Informasi yang belum tersedia.
+- Fokus pendampingan yang disarankan.
+- Hal yang harus diverifikasi oleh pengawas.
+
+==================================================
+BAGIAN 7. ANALISIS DENGAN GEMINI AI
+==================================================
+
+Integrasikan Gemini API melalui lingkungan server-side yang aman.
+
+Jangan menaruh API key di kode frontend atau mengeksposnya melalui browser.
+
+Gunakan pengelolaan secret yang disediakan lingkungan aplikasi.
+
+Buat layanan analisis AI dengan instruksi berikut:
+
+"Anda adalah asisten analisis data pendidikan yang membantu pengawas sekolah di Indonesia.
+
+Analisis data Rapor Pendidikan yang diberikan berdasarkan informasi aktual yang tersedia.
+
+Gunakan bahasa Indonesia yang profesional, jelas, objektif, dan mudah dipahami.
+
+Jangan mengarang angka, nama indikator, definisi, kategori capaian, akar masalah, target, atau kebijakan resmi.
+
+Pisahkan fakta, hasil perhitungan, interpretasi, hipotesis, dan rekomendasi.
+
+Jika data tidak cukup, katakan secara eksplisit bahwa data belum cukup.
+
+Jangan menyimpulkan hubungan sebab-akibat hanya berdasarkan korelasi antarindikator.
+
+Gunakan definisi dan arah perubahan indikator yang tersedia pada sumber.
+
+Jika definisi atau arah perubahan belum diketahui, jangan menebaknya.
+
+Berikan rekomendasi pendampingan yang realistis, spesifik, terukur, dan dapat dilakukan oleh kepala sekolah bersama guru.
+
+Setiap rekomendasi harus merujuk pada indikator atau temuan yang mendasarinya.
+
+Utamakan perbaikan pembelajaran, penguatan kapasitas kepala sekolah dan guru, pengambilan keputusan berbasis data, serta peningkatan mutu layanan pendidikan.
+
+Jangan memperlakukan rekomendasi AI sebagai keputusan final. Pengawas harus memverifikasi dan menyetujui rekomendasi sebelum digunakan."
+
+Buat AI menghasilkan keluaran dalam format JSON terstruktur yang divalidasi oleh aplikasi.
+
+Struktur keluaran minimal:
+
+{
+  "ringkasan_eksekutif": "",
+  "kekuatan_sekolah": [],
+  "temuan_utama": [
+    {
+      "kode_indikator": "",
+      "nama_indikator": "",
+      "fakta_data": "",
+      "interpretasi": "",
+      "status_bukti": "",
+      "tingkat_prioritas": "",
+      "alasan_prioritas": "",
+      "keterbatasan_analisis": ""
+    }
+  ],
+  "hipotesis_akar_masalah": [
+    {
+      "dugaan_masalah": "",
+      "dasar_dugaan": "",
+      "bukti_yang_diperlukan": "",
+      "metode_verifikasi": ""
+    }
+  ],
+  "rekomendasi_pendampingan": [
+    {
+      "indikator_terkait": "",
+      "tujuan_perbaikan": "",
+      "langkah_pendampingan": [],
+      "pihak_terlibat": [],
+      "indikator_keberhasilan": "",
+      "bukti_dukung": "",
+      "jangka_waktu": "",
+      "status_rekomendasi": "Perlu validasi pengawas"
+    }
+  ],
+  "data_yang_perlu_dilengkapi": [],
+  "kesimpulan": ""
+}
+
+Validasi hasil JSON sebelum ditampilkan.
+
+Jika keluaran AI tidak valid, lakukan penanganan kesalahan yang aman dan tampilkan opsi untuk mencoba kembali.
+
+Simpan hasil analisis beserta:
+- Waktu analisis.
+- Versi atau identitas model jika tersedia.
+- Data sumber yang digunakan.
+- Hasil analisis.
+- Status validasi pengawas.
+
+Jangan otomatis mengubah data asli berdasarkan hasil AI.
+
+==================================================
+BAGIAN 8. ANALISIS KHUSUS JENJANG SD DAN TK
+==================================================
+
+Sediakan alur analisis yang terpisah untuk SD dan TK.
+
+Untuk SD:
+- Analisis hanya indikator yang tersedia dan relevan bagi SD.
+- Perhatikan capaian pembelajaran dan mutu proses pendidikan sesuai indikator dalam dokumen.
+- Identifikasi area yang memerlukan pendampingan berdasarkan data.
+- Susun rekomendasi yang sesuai dengan konteks sekolah dasar.
+- Jangan menyimpulkan mutu pembelajaran hanya berdasarkan satu indikator.
+
+Untuk TK:
+- Analisis hanya indikator yang tersedia dan relevan bagi TK.
+- Sesuaikan interpretasi dengan karakteristik layanan pendidikan anak usia dini.
+- Hindari menerapkan indikator atau standar SD secara otomatis.
+- Susun rekomendasi yang sesuai dengan konteks layanan TK.
+
+Jika indikator SD dan TK memiliki nama yang mirip tetapi definisi atau metode pengukuran berbeda, jangan membandingkannya secara langsung.
+
+Sediakan pilihan "Analisis berdasarkan jenjang" pada semua halaman analisis dan laporan.
+
+==================================================
+BAGIAN 9. ANALISIS LINTAS 17 SEKOLAH
+==================================================
+
+Buat modul "Analisis Lintas Sekolah".
+
+Fitur:
+- Rekapitulasi 12 SD.
+- Rekapitulasi 5 TK.
+- Analisis SD dan TK secara terpisah.
+- Perbandingan indikator yang benar-benar sebanding.
+- Perbandingan perkembangan antartahun.
+- Pemetaan kekuatan sekolah.
+- Pemetaan kebutuhan pendampingan.
+- Identifikasi sekolah yang dapat menjadi sumber praktik baik.
+- Identifikasi tema pendampingan bersama untuk beberapa sekolah.
+
+Sediakan tabel dengan kolom:
+- Nama sekolah.
+- Jenjang.
+- Indikator.
+- Capaian terbaru.
+- Capaian sebelumnya.
+- Arah perubahan.
+- Status kesetaraan data.
+- Catatan analisis.
+- Fokus pendampingan.
+
+Sediakan grafik batang, grafik garis, dan tabel berwarna untuk mempermudah pembacaan.
+
+Warna hanya membantu visualisasi, bukan menentukan status resmi.
+
+Gunakan label yang jelas:
+- Perlu perhatian.
+- Perlu verifikasi.
+- Perkembangan positif.
+- Data belum cukup.
+- Tidak dapat dibandingkan.
+
+Status tersebut merupakan label analisis aplikasi dan tidak boleh diklaim sebagai kategori resmi jika bukan berasal dari sumber resmi.
+
+Jangan membuat peringkat sekolah berdasarkan satu indikator secara otomatis.
+
+Jika pengguna meminta pemeringkatan, tampilkan dasar perhitungan, keterbatasan, dan konfirmasi bahwa indikator yang dibandingkan benar-benar sebanding.
+
+==================================================
+BAGIAN 10. MODUL RENCANA PENDAMPINGAN
+==================================================
+
+Buat modul "Rencana Pendampingan Sekolah".
+
+Modul ini membantu pengawas menerjemahkan hasil analisis menjadi kegiatan pendampingan nyata.
+
+Sediakan kolom:
+- Nama sekolah.
+- Jenjang.
+- Tahun analisis.
+- Indikator prioritas.
+- Temuan utama.
+- Tujuan pendampingan.
+- Bentuk kegiatan.
+- Langkah kegiatan.
+- Sasaran.
+- Pihak yang terlibat.
+- Jadwal pelaksanaan.
+- Target keberhasilan.
+- Bukti dukung.
+- Penanggung jawab.
+- Status pelaksanaan.
+- Hasil evaluasi.
+- Catatan pengawas.
+
+Pilihan bentuk kegiatan:
+- Diskusi dengan kepala sekolah.
+- Pendampingan perencanaan berbasis data.
+- Refleksi bersama.
+- Analisis akar masalah.
+- Observasi pembelajaran.
+- Pendampingan guru.
+- Lokakarya.
+- Berbagi praktik baik.
+- Monitoring tindak lanjut.
+- Evaluasi perubahan capaian.
+
+Bentuk kegiatan harus dapat ditambah dan diedit pengguna.
+
+Sediakan status:
+- Belum direncanakan.
+- Direncanakan.
+- Sedang dilaksanakan.
+- Menunggu evaluasi.
+- Selesai.
+- Perlu tindak lanjut.
+
+Buat fasilitas untuk:
+1. Membuat rencana tindak lanjut dari hasil analisis AI.
+2. Mengedit rencana sebelum disimpan.
+3. Menyetujui atau menolak rekomendasi AI.
+4. Menghubungkan rencana dengan indikator terkait.
+5. Memantau kemajuan kegiatan.
+6. Mengunggah bukti dukung.
+7. Mencatat hasil pendampingan.
+8. Membandingkan kondisi sebelum dan sesudah tindak lanjut jika data tersedia.
+
+Jangan mengubah status menjadi selesai hanya karena waktu pelaksanaan telah lewat.
+
+Status penyelesaian harus ditetapkan pengguna berdasarkan bukti.
+
+==================================================
+BAGIAN 11. GENERATOR LAPORAN OTOMATIS
+==================================================
+
+Buat modul laporan dengan tampilan profesional yang dapat digunakan dalam pelaksanaan tugas pengawasan.
+
+Sediakan jenis laporan:
+
+A. LAPORAN INDIVIDUAL SEKOLAH
+
+Isi laporan:
+1. Sampul.
+2. Identitas sekolah.
+3. Jenjang.
+4. Tahun data.
+5. Sumber data.
+6. Ringkasan eksekutif.
+7. Gambaran data yang tersedia.
+8. Analisis capaian indikator.
+9. Analisis perkembangan.
+10. Kekuatan sekolah.
+11. Temuan prioritas.
+12. Analisis akar masalah dan status buktinya.
+13. Rekomendasi pendampingan.
+14. Rencana tindak lanjut.
+15. Indikator keberhasilan.
+16. Bukti yang perlu dikumpulkan.
+17. Kesimpulan.
+18. Catatan validasi pengawas.
+
+B. LAPORAN REKAPITULASI 12 SD
+
+Tampilkan:
+- Ringkasan kondisi SD binaan.
+- Kelengkapan data.
+- Indikator yang dapat dibandingkan.
+- Tema kebutuhan pendampingan bersama.
+- Sekolah yang memiliki praktik baik berdasarkan bukti.
+- Rekomendasi program pendampingan tingkat kelompok.
+- Keterbatasan data.
+
+C. LAPORAN REKAPITULASI 5 TK
+
+Gunakan struktur serupa, tetapi sesuaikan dengan indikator dan karakteristik TK.
+
+D. LAPORAN KESELURUHAN 17 SEKOLAH
+
+Tampilkan ringkasan manajemen seluruh sekolah, dengan analisis SD dan TK tetap dipisahkan ketika indikatornya tidak sebanding.
+
+E. LAPORAN RENCANA TINDAK LANJUT
+
+Tampilkan daftar kegiatan, target, jadwal, status, dan hasil evaluasi.
+
+Format ekspor:
+- PDF untuk laporan final.
+- DOCX untuk laporan yang masih perlu diedit.
+- XLSX untuk tabel data dan rekapitulasi.
+- CSV untuk data tabular.
+
+Pastikan file hasil ekspor benar-benar dibuat dan dapat diunduh.
+
+Sediakan pratinjau sebelum laporan diunduh.
+
+Gunakan format dokumen formal dengan:
+- Judul laporan.
+- Identitas sekolah.
+- Tanggal pembuatan.
+- Penomoran halaman jika memungkinkan.
+- Tabel yang rapi.
+- Grafik yang relevan.
+- Sumber data.
+- Catatan tentang keterbatasan analisis.
+
+Jangan menampilkan hasil AI yang belum divalidasi sebagai kesimpulan resmi pengawas.
+
+Sediakan ruang untuk nama, jabatan, dan tanda tangan pengawas, tetapi jangan mengarang nama atau tanda tangan.
+
+==================================================
+BAGIAN 12. RIWAYAT DAN MONITORING PERKEMBANGAN
+==================================================
+
+Buat modul "Riwayat Analisis".
+
+Setiap sekolah memiliki riwayat:
+- Tahun data.
+- Tanggal unggah.
+- Tanggal analisis.
+- Versi analisis.
+- Hasil analisis.
+- Rekomendasi yang disetujui.
+- Rencana tindak lanjut.
+- Hasil monitoring.
+- Catatan perubahan.
+
+Pengguna dapat memilih dua periode atau lebih untuk melihat perkembangan indikator.
+
+Tampilkan grafik perkembangan berdasarkan data yang benar-benar tersedia.
+
+Jika terjadi perubahan definisi indikator, tampilkan peringatan dan jangan menggabungkan data yang tidak sebanding.
+
+Jangan menghapus hasil analisis lama ketika data baru diunggah.
+
+Sediakan fitur arsip dan ekspor riwayat.
+
+==================================================
+BAGIAN 13. PENGELOLAAN DATA DAN BASIS DATA
+==================================================
+
+Gunakan arsitektur aplikasi web full-stack.
+
+Gunakan React dan TypeScript untuk frontend jika didukung oleh lingkungan pengembangan.
+
+Gunakan server-side runtime untuk:
+- Memanggil Gemini API.
+- Memproses file.
+- Melakukan validasi data.
+- Menjalankan perhitungan.
+- Menghasilkan laporan.
+- Menangani operasi basis data.
+
+Gunakan Firebase Authentication dan Cloud Firestore jika integrasi tersebut dapat diaktifkan pada proyek.
+
+Jika Firebase belum dikonfigurasi, buat lapisan penyimpanan yang terstruktur dan jelaskan konfigurasi yang diperlukan. Jangan mengklaim data telah tersimpan secara permanen jika aplikasi hanya menggunakan penyimpanan sementara.
+
+Rancang koleksi atau tabel:
+- users
+- schools
+- rapor_uploads
+- indicators
+- indicator_results
+- analysis_history
+- recommendations
+- action_plans
+- monitoring_records
+- supporting_documents
+- audit_logs
+
+Buat hubungan antardata dengan ID yang konsisten.
+
+Sediakan mekanisme:
+- Validasi data.
+- Pencegahan duplikasi.
+- Penanganan kesalahan.
+- Pencatatan perubahan penting.
+- Pengarsipan.
+- Pemulihan dari kegagalan proses.
+- Penghapusan data dengan konfirmasi.
+
+Jangan menghapus data historis secara otomatis.
+
+==================================================
+BAGIAN 14. KEAMANAN DAN PRIVASI
+==================================================
+
+Data pendidikan sekolah merupakan informasi yang harus dikelola dengan hati-hati.
+
+Terapkan:
+- Login pengguna.
+- Akses berdasarkan peran jika multi-pengguna diaktifkan.
+- Aturan keamanan basis data.
+- Validasi input pada server.
+- Pembatasan jenis dan ukuran file.
+- Pengamanan kredensial API.
+- Pengelolaan sesi yang aman.
+- Audit untuk tindakan penting.
+- Konfirmasi sebelum penghapusan.
+- Mekanisme ekspor data yang terkendali.
+
+Jangan mengekspos API key dalam kode frontend.
+
+Jangan membuat tautan publik untuk dokumen sekolah secara otomatis.
+
+Jangan mengirim data pribadi siswa atau guru yang tidak diperlukan ke model AI.
+
+Jika dokumen berisi nama, NIK, nomor telepon, atau informasi pribadi lain yang tidak diperlukan untuk analisis, minimalkan atau samarkan informasi tersebut sebelum dikirim ke AI.
+
+Berikan informasi kepada pengguna tentang data yang diproses oleh AI.
+
+Sediakan opsi untuk menghapus file sementara setelah pemrosesan selesai.
+
+Jangan menganggap aplikasi otomatis memenuhi seluruh ketentuan keamanan atau perlindungan data hanya karena menggunakan Firebase.
+
+==================================================
+BAGIAN 15. NAVIGASI APLIKASI
+==================================================
+
+Buat sidebar dengan menu:
+
+1. Dashboard.
+2. Data Sekolah Binaan.
+3. Unggah Rapor Pendidikan.
+4. Data dan Indikator.
+5. Analisis Per Sekolah.
+6. Analisis Lintas Sekolah.
+7. Rencana Pendampingan.
+8. Monitoring Tindak Lanjut.
+9. Riwayat Analisis.
+10. Laporan.
+11. Pengaturan.
+12. Bantuan.
+
+Setiap menu harus memiliki halaman dan fungsi yang sesuai.
+
+Jangan membuat menu yang hanya berupa tombol dekoratif.
+
+Jika sebuah fitur belum dikonfigurasi, tampilkan status dan petunjuk pengaturannya.
+
+==================================================
+BAGIAN 16. PENGALAMAN PENGGUNA
+==================================================
+
+Buat alur penggunaan yang sederhana.
+
+ALUR 1: MENAMBAHKAN SEKOLAH
+Pengguna membuka Data Sekolah Binaan, menambahkan sekolah, memasukkan identitas, memilih jenjang, kemudian menyimpan.
+
+ALUR 2: MENGUNGGAH RAPOR
+Pengguna memilih sekolah, tahun data, mengunggah file, memeriksa hasil ekstraksi, memvalidasi data, lalu mengonfirmasi impor.
+
+ALUR 3: MENGANALISIS SEKOLAH
+Pengguna memilih sekolah dan periode, menekan tombol analisis, melihat hasil perhitungan, menjalankan analisis AI, kemudian memeriksa rekomendasi.
+
+ALUR 4: MENYUSUN PENDAMPINGAN
+Pengguna memilih temuan yang telah diverifikasi, membuat rencana tindak lanjut, menentukan jadwal, sasaran, indikator keberhasilan, dan bukti dukung.
+
+ALUR 5: MEMBUAT LAPORAN
+Pengguna memilih sekolah atau kelompok sekolah, memilih periode, melihat pratinjau, mengonfirmasi isi laporan, lalu mengunduh hasilnya.
+
+ALUR 6: MONITORING
+Pengguna mencatat pelaksanaan kegiatan, mengunggah bukti, mengisi hasil evaluasi, dan memperbarui status tindak lanjut.
+
+Sediakan notifikasi yang jelas untuk:
+- Berhasil menyimpan.
+- Berhasil mengimpor.
+- Gagal memproses file.
+- Data tidak lengkap.
+- Analisis selesai.
+- Analisis gagal.
+- Laporan berhasil dibuat.
+- Perubahan belum disimpan.
+
+==================================================
+BAGIAN 17. DATA DEMONSTRASI
+==================================================
+
+Sediakan mode demonstrasi untuk menguji aplikasi sebelum data sekolah sebenarnya dimasukkan.
+
+Buat data contoh yang jelas diberi label:
+"DATA DEMONSTRASI — BUKAN DATA RESMI".
+
+Jangan mencampur data demonstrasi dengan data sekolah sebenarnya.
+
+Buat contoh:
+- Satu sekolah SD.
+- Satu sekolah TK.
+- Beberapa indikator fiktif.
+- Dua periode data fiktif.
+- Contoh hasil analisis.
+- Contoh rekomendasi pendampingan.
+- Contoh rencana tindak lanjut.
+
+Jangan menggunakan nama atau NPSN sekolah nyata untuk data fiktif.
+
+Sediakan tombol "Hapus Data Demonstrasi" yang hanya menghapus data demonstrasi dan tidak memengaruhi data asli.
+
+Jika data demonstrasi belum dihapus, tampilkan peringatan ketika pengguna membuka laporan final.
+
+==================================================
+BAGIAN 18. PENGUJIAN DAN KRITERIA KEBERHASILAN
+==================================================
+
+Sebelum menyatakan aplikasi selesai, lakukan pemeriksaan berikut:
+
+1. Semua halaman utama dapat dibuka.
+2. Navigasi berfungsi.
+3. Data sekolah dapat ditambah, diedit, dan dihapus.
+4. File XLSX dan CSV dapat diproses.
+5. Validasi data berjalan.
+6. Sistem dapat menangani file dengan nama kolom berbeda melalui pemetaan.
+7. Data sekolah yang berbeda tidak tertukar.
+8. Data SD dan TK dianalisis secara terpisah.
+9. Perhitungan perubahan angka benar.
+10. Indikator yang tidak sebanding tidak dibandingkan secara langsung.
+11. AI tidak mengisi data yang tidak tersedia dengan angka karangan.
+12. Hasil AI dapat divalidasi dan diedit oleh pengawas.
+13. Rekomendasi dapat diubah menjadi rencana tindak lanjut.
+14. Riwayat analisis tidak hilang ketika data baru diimpor.
+15. Laporan PDF, DOCX, dan XLSX benar-benar dapat dibuat.
+16. Aplikasi memberikan pesan kesalahan yang jelas.
+17. Data tersimpan sesuai mekanisme penyimpanan yang telah dikonfigurasi.
+18. API key tidak muncul dalam kode frontend.
+19. Aplikasi dapat digunakan pada layar laptop dan ponsel.
+20. Tidak ada tombol utama yang sekadar menjadi dekorasi tanpa fungsi.
+
+Buat pengujian untuk fungsi penting, khususnya perhitungan indikator, validasi impor, dan pencegahan pencampuran data sekolah.
+
+Jika ditemukan kesalahan, perbaiki dan uji ulang.
+
+Jangan menyatakan aplikasi telah lulus pengujian jika pengujian belum dilakukan.
+
+==================================================
+BAGIAN 19. PETUNJUK PENGGUNAAN
+==================================================
+
+Sediakan halaman bantuan berbahasa Indonesia yang menjelaskan:
+- Cara menambahkan 17 sekolah binaan.
+- Cara mengunggah Rapor Pendidikan.
+- Cara memperbaiki kesalahan impor.
+- Cara menjalankan analisis.
+- Cara memvalidasi hasil AI.
+- Cara membuat rencana pendampingan.
+- Cara memantau tindak lanjut.
+- Cara mengekspor laporan.
+- Cara mengelola data demonstrasi.
+- Cara mengonfigurasi penyimpanan dan keamanan.
+- Cara menyiapkan aplikasi untuk penggunaan bersama jika diperlukan.
+
+Jelaskan juga bahwa hasil analisis AI merupakan bahan pertimbangan yang perlu diverifikasi oleh pengawas sekolah.
+
+==================================================
+BAGIAN 20. INSTRUKSI IMPLEMENTASI AKHIR
+==================================================
+
+Sekarang bangun aplikasi ini secara nyata.
+
+Urutan implementasi:
+
+Tahap 1:
+Buat kerangka aplikasi, desain, navigasi, dashboard, dan data sekolah.
+
+Tahap 2:
+Buat fitur unggah, ekstraksi, pemetaan, validasi, dan penyimpanan data.
+
+Tahap 3:
+Buat mesin perhitungan indikator dan analisis perubahan.
+
+Tahap 4:
+Integrasikan Gemini API melalui server-side runtime untuk menyusun interpretasi dan rekomendasi.
+
+Tahap 5:
+Buat analisis lintas sekolah, rencana pendampingan, dan monitoring.
+
+Tahap 6:
+Buat generator laporan PDF, DOCX, dan XLSX.
+
+Tahap 7:
+Buat autentikasi, pengaturan keamanan, pengujian, dan dokumentasi penggunaan.
+
+Jika semua fitur tidak dapat diselesaikan dalam satu proses, prioritaskan fungsi inti secara bertahap tanpa merusak fitur yang telah selesai.
+
+Jangan berhenti setelah menghasilkan rencana atau rancangan.
+
+Mulailah dengan membangun aplikasi yang dapat dijalankan dan menampilkan pratinjau interaktif.
+
+Setelah implementasi, tampilkan ringkasan fitur yang telah benar-benar berfungsi, fitur yang membutuhkan konfigurasi tambahan, hasil pengujian, dan langkah selanjutnya agar aplikasi dapat digunakan oleh pengawas sekolah.
+
+Pastikan seluruh antarmuka menggunakan Bahasa Indonesia dan sesuai dengan konteks tugas pengawas sekolah di Dinas Pendidikan dan Kebudayaan Kota Pontianak.
